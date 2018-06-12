@@ -90,6 +90,7 @@ C:\Users\DaniloP\Documents\repositorios\GEA\GEA\bin\Microsoft.AI.DependencyColle
 C:\Users\DaniloP\Documents\repositorios\GEA\GEA\bin\Microsoft.AI.WindowsServer.xml
 C:\Users\DaniloP\Documents\repositorios\GEA\GEA\bin\Microsoft.AI.Web.xml
 C:\Users\DaniloP\Documents\repositorios\GEA\GEA\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\DaniloP\Documents\repositorios\GEA\GEA\obj\Debug\GEA.csprojAssemblyReference.cache
 C:\Users\DaniloP\Documents\repositorios\GEA\GEA\obj\Debug\GEA.csproj.CoreCompileInputs.cache
 C:\Users\DaniloP\Documents\repositorios\GEA\GEA\obj\Debug\GEA.csproj.CopyComplete
 C:\Users\DaniloP\Documents\repositorios\GEA\GEA\obj\Debug\GEA.dll
