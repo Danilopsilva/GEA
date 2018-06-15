@@ -56,6 +56,8 @@
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -154,10 +156,27 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
-    <Compile Include="Back-end\Companies\CompaniesController.cs" />
-    <Compile Include="Back-end\Companies\Database\CompanyDb.cs" />
-    <Compile Include="Back-end\Companies\Models\Company.cs" />
+    <Compile Include="Back-end\Company\CompanyController.cs" />
+    <Compile Include="Back-end\Company\Models\COMPANIES.cs">
+      <DependentUpon>CompanyDb.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Back-end\Company\Models\CompanyDb.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CompanyDb.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Back-end\Company\Models\CompanyDb.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CompanyDb.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Back-end\Company\Models\CompanyDb.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CompanyDb.edmx</DependentUpon>
+    </Compile>
     <Compile Include="Back-end\Employees\Database\EmployeesDb.cs" />
+    <Compile Include="Back-end\Service\ValidationFailures.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Back-end\Employees\Models\Operator.cs" />
     <Compile Include="Global.asax.cs">
@@ -166,6 +185,24 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Scripts\AngularApp\Company\CompanyController.js" />
+    <Content Include="Scripts\AngularApp\Company\Controller.js" />
+    <Content Include="Scripts\AngularApp\Company\ModuleJs.js" />
+    <Content Include="Scripts\AngularApp\Company\Service.js" />
+    <Content Include="App_Data\GEA.mdf" />
+    <Content Include="App_Data\GEA_log.ldf">
+      <DependentUpon>GEA.mdf</DependentUpon>
+    </Content>
+    <Content Include="Back-end\Company\Models\CompanyDb.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>CompanyDb.edmx</DependentUpon>
+      <LastGenOutput>CompanyDb.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Back-end\Company\Models\CompanyDb.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>CompanyDb.edmx</DependentUpon>
+      <LastGenOutput>CompanyDb.cs</LastGenOutput>
+    </Content>
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
@@ -174,10 +211,21 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Scripts\angular-mocks.js" />
+    <Content Include="Scripts\angular.js" />
+    <Content Include="Scripts\angular.min.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Scripts\angular.min.js.map" />
+    <EntityDeploy Include="Back-end\Company\Models\CompanyDb.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>CompanyDb.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Back-end\Company\Models\CompanyDb.edmx.diagram">
+      <DependentUpon>CompanyDb.edmx</DependentUpon>
     </Content>
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
@@ -190,7 +238,9 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
@@ -204,15 +254,15 @@
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="Views\Companies\Save.cshtml" />
-    <Content Include="Views\Companies\Delete.cshtml" />
-    <Content Include="Views\Companies\Details.cshtml" />
-    <Content Include="Views\Companies\Update.cshtml" />
-    <Content Include="Views\Companies\Index.cshtml" />
-    <Content Include="Views\Companies\Home.cshtml" />
+    <Content Include="Views\Company\Save.cshtml" />
+    <Content Include="Views\Company\Delete.cshtml" />
+    <Content Include="Views\Company\Details.cshtml" />
+    <Content Include="Views\Company\Update.cshtml" />
+    <Content Include="Views\Company\Index.cshtml" />
+    <Content Include="Views\Company\Home.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="App_Data\" />
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
@@ -227,6 +277,7 @@
     <Content Include="Scripts\jquery-3.3.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.3.1.min.map" />
   </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
