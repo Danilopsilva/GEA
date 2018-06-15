@@ -19,4 +19,19 @@ companyApp.service('companyService', function ($http) {
         });
         return request; 
     }
+
+    //Service responsavel por editar uma empresa
+    this.updateCompany = function (company) {
+        var request = $http({
+            method: 'post',
+            url: '/Company/UpdateCompany',
+            data: company
+        });
+        return request;
+    }
+
+    //Service responsavel por editar uma empresa
+    this.deleteCompany = function (id) {
+        return $http.post('/Company/DeleteCompany' + id);
+    }
 });

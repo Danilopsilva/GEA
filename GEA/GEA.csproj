@@ -179,6 +179,7 @@
     <Compile Include="Back-end\Service\ValidationFailures.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Back-end\Employees\Models\Operator.cs" />
+    <Compile Include="Controllers\OperatorsController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -187,7 +188,7 @@
   <ItemGroup>
     <Content Include="Scripts\AngularApp\Company\CompanyController.js" />
     <Content Include="Scripts\AngularApp\Company\Controller.js" />
-    <Content Include="Scripts\AngularApp\Company\ModuleJs.js" />
+    <Content Include="Scripts\AngularApp\Company\Module.js" />
     <Content Include="Scripts\AngularApp\Company\Service.js" />
     <Content Include="App_Data\GEA.mdf" />
     <Content Include="App_Data\GEA_log.ldf">
@@ -260,6 +261,11 @@
     <Content Include="Views\Company\Update.cshtml" />
     <Content Include="Views\Company\Index.cshtml" />
     <Content Include="Views\Company\Home.cshtml" />
+    <Content Include="Views\Operators\Create.cshtml" />
+    <Content Include="Views\Operators\Delete.cshtml" />
+    <Content Include="Views\Operators\Details.cshtml" />
+    <Content Include="Views\Operators\Edit.cshtml" />
+    <Content Include="Views\Operators\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />

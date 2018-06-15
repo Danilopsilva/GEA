@@ -15,7 +15,7 @@ namespace GEA.Back_end.Companies
     {
         GeaEntities db = new GeaEntities();
 
-        #region //Método listar Empresas
+        #region Método listar Empresas
         //GET: DB
         public ActionResult Index()
         {
@@ -32,6 +32,8 @@ namespace GEA.Back_end.Companies
                 return result;
         }
         #endregion
+
+        #region Método responsável por salvar empresas
         [HttpPost]
         public JsonResult SaveCompany(COMPANIES company)
         {
@@ -54,7 +56,39 @@ namespace GEA.Back_end.Companies
             }
             return result;
         }
+        #endregion
 
+        [HttpPost]
+        public JsonResult UpdateCompany(COMPANIES company)
+        {
+            var newCompany = db.Company.SingleOrDefault(b => b.Id == company.Id);
+            if (newCompany != null)
+            {
+                newCompany.Name = company.Name;
+                newCompany.Cnpj = company.Cnpj;
+
+                db.SaveChanges();
+                return Json(new { success = true });
+            }
+            else
+              return Json(new { Success = false });
+        }
+
+
+        [HttpPost]
+        public JsonResult DeleteCompany(int id)
+        {
+            var company = db.Company.Find(id);
+            if (company != null)
+            {
+                db.Company.Remove(company);
+                db.SaveChanges();
+                return Json(new { sucess = true });
+            }
+            return Json(new { success = false });
+        }
+
+        #region Método de validação do Salvar e Atualizar
         public static IList<ValidationFailures> validateSave(COMPANIES company)
         {
             var failures = new List<ValidationFailures>();
@@ -85,8 +119,7 @@ namespace GEA.Back_end.Companies
             }
             
             return failures;
-
-
         }
+        #endregion
     }
 }
