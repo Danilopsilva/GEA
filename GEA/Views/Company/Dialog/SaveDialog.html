@@ -1,0 +1,31 @@
+﻿
+
+
+<div class="modal" id="saveCompany" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="text-info">Adicione Nova Empresa</h3>
+            </div>
+            <div class="modal-body">
+                <form class="form-horizontal" name="adicionarEmpresa">
+                    <div class="form-group">
+                        <input class="form-control" readonly="readonly" name="id" type="hidden" placeholder="Id Empresa" />
+                    </div>
+
+                    <div class="form-group" align="center">
+                        <input type="text" class="form-control" name="Nome Empresa" ng-model="name" placeholder="Nome Empresa" />
+                    </div>
+
+                    <div class="form-group" align="center">
+                        <input type="text" class="form-control" name="Cnpj" ng-model="cnpj" placeholder="Cnpj" />
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-default" data-dismiss="modal" ng-click="clearFields()">Cancelar</button>
+                <button type="button" class="btn btn-success" id="btnSave" data-dismiss="modal" ng-click="saveCompany()">Salvar</button>
+            </div>
+        </div>
+    </div>
+</div>

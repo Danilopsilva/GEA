@@ -31,7 +31,6 @@ companyApp.controller('CompanyController', function ($scope, companyService) {
             //valida se empresa foi cadastrada e retorma mensagens ao usuário.
             comány.then(result => {
                 if (result.data.success === true) {
-                    alert("Empresa Adicionada com Sucesso.");
                     getCompanies();
                     $scope.clearFields();
                 } else if (result.data)
@@ -56,7 +55,6 @@ companyApp.controller('CompanyController', function ($scope, companyService) {
         comanyData.then(result => {
             if (result.data.success === true) {
                 getCompanies();
-                alert("Empresa Atualizada.");
                 $scope.clearFields();
             }
             else {
@@ -68,12 +66,10 @@ companyApp.controller('CompanyController', function ($scope, companyService) {
     }
 
     $scope.deleteCompany = function(id){
-        var deleteData= companyService.deleteCompany($scope.Id);
+        var deleteData= companyService.deleteCompany(id);
             deleteData.then(result => {
                 if(result.data.success ===true)
-                {    getCompanies();
-                    alert("Empresa Removida com Sucesso.");
-                }
+                    getCompanies();
                 else{
                     alert("Empresa não removida ");
                 }

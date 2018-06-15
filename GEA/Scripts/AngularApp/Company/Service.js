@@ -32,6 +32,6 @@ companyApp.service('companyService', function ($http) {
 
     //Service responsavel por editar uma empresa
     this.deleteCompany = function (id) {
-        return $http.post('/Company/DeleteCompany' + id);
+        return $http.post('/Company/DeleteCompany/'+ id);
     }
 });

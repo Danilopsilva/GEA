@@ -83,7 +83,7 @@ namespace GEA.Back_end.Companies
             {
                 db.Company.Remove(company);
                 db.SaveChanges();
-                return Json(new { sucess = true });
+                return Json(new { success = true });
             }
             return Json(new { success = false });
         }
