@@ -28,7 +28,7 @@
                         <td>{{company.CreateadWhen}}</td>
                         <td>
                             <button type="button" data-target="#updateCompany" data-toggle="modal" class="btn btn-info" ng-click="updateCompanyId(company)">Editar</button>
-                            <a href="#" data-target="#deleteCompany" data-toggle="modal" ng-click="deleteCompanyId(company)" class="btn btn-danger">Deletar</a>
+                            <a href="#" data-target="#deleteCompany" data-toggle="modal" ng-click="deleteCompanyId(company)" class="btn btn-danger">Remover</a>
                         </td>
                     </tr>
                 </tbody>
@@ -105,8 +105,8 @@
                         </div>
                     </div>
                     <div class="modal-footer">
-                        <button class="btn btn-default" data-dismiss="modal" ng-click="clearFields()">Cancelar</button>
-                        <button type="button" class="btn btn-success" id="btnDelete" data-dismiss="modal" ng-click="deleteCompany(companyId)">Salvar</button>
+                        <button class="btn btn-default" data-dismiss="modal" ng-click="clearFields()">Não</button>
+                        <button type="button" class="btn btn-danger" id="btnDelete" data-dismiss="modal" ng-click="deleteCompany(companyId)">Sim</button>
                     </div>
                 </div>
             </div>
