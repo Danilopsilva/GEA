@@ -1,0 +1,129 @@
+﻿<!DOCTYPE html>
+
+<html ng-app="CompanyApp">
+<body>
+
+    <div class="container" ng-controller="CompanyController">
+        <br />
+        <div class="panel panel-info">
+            <div class="panel-heading">FUNCIONÁRIOS CADASTRADOS</div>
+            <br />
+            <button type="button" class="btn btn-info" data-target="#saveCompany" data-toggle="modal">Adicionar Nova</button>
+            <br />
+            <div ng-if="Companies.length == 0 ">
+                <h3 align="center">Não Existem Funcionários Cadastrados</h3>
+            </div>
+
+            <div ng-if="Companies.length > 0">
+                <table class=" table table-striped ">
+                    <thead>
+                        <tr>
+                            <th>CÓDIGO EMPRESA</th>
+                            <th>NOME</th>
+                            <th>CNPJ</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="company in Companies">
+                            <td>{{company.Id}}</td>
+                            <td>{{company.Name}}</td>
+                            <td>{{company.Cnpj}}</td>
+                            <td>
+                                <button type="button" data-target="#updateCompany" data-toggle="modal" class="btn btn-info" ng-click="updateCompanyId(company)">Editar</button>
+                                <a href="#" data-target="#deleteCompany" data-toggle="modal" ng-click="deleteCompanyId(company)" class="btn btn-danger">Remover</a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+
+            <!--Cria diálogo para salvar uma nova emrpresa-->
+            <div class="modal" id="saveCompany" role="dialog">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h3 class="text-info">Adicione Nova Empresa</h3>
+                        </div>
+                        <div class="modal-body">
+                            <form class="form-horizontal" name="adicionarEmpresa">
+                                <div class="form-group">
+                                    <input class="form-control" readonly="readonly" name="id" type="hidden" placeholder="Id Empresa" />
+                                </div>
+
+                                <div class="form-group" align="center">
+                                    <input type="text" class="form-control" name="Nome Empresa" ng-model="name" placeholder="Nome Empresa" />
+                                </div>
+
+                                <div class="form-group" align="center">
+                                    <input type="text" class="form-control" name="Cnpj" ng-model="cnpj" placeholder="Cnpj" />
+                                </div>
+                            </form>
+                        </div>
+                        <div class="modal-footer">
+                            <button class="btn btn-default" data-dismiss="modal" ng-click="clearFields()">Cancelar</button>
+                            <button type="button" class="btn btn-success" id="btnSave" data-dismiss="modal" ng-click="saveCompany()">Salvar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="modal" id="updateCompany" role="dialog">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h3 class="text-info">EditEmpresa</h3>
+                        </div>
+                        <div class="modal-body">
+                            <form class="form-horizontal" name="editarEmpresa">
+                                <div class="form-group">
+                                    <input class="form-control" readonly="readonly" name="id" type="hidden" placeholder="Id Empresa" ng-model="id" />
+                                </div>
+
+                                <div class="form-group" align="center">
+                                    <input type="text" class="form-control" name="Nome Empresa" ng-model="companyName" placeholder="Nome Empresa" />
+                                </div>
+
+                                <div class="form-group" align="center">
+                                    <input type="text" class="form-control" name="Cnpj" ng-model="companyCnpj" placeholder="Cnpj" />
+                                </div>
+                            </form>
+                        </div>
+                        <div class="modal-footer">
+                            <button class="btn btn-default" data-dismiss="modal" ng-click="clearFields()">Cancelar</button>
+                            <button type="button" class="btn btn-success" id="btnUpdate" data-dismiss="modal" ng-click="updateCompany()">Salvar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="modal" id="deleteCompany" role="dialog">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h3 class="text-info">Você tem Certeza que Deseja Remover a Empresa?</h3>
+                        </div>
+                        <div class="modal-body">
+                            <div>
+                                <p>Código da Empresa: {{companyId}}</p>
+                                <p>Nome da Empresa: {{companyName}}</p>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button class="btn btn-default" data-dismiss="modal" ng-click="clearFields()">Não</button>
+                            <button type="button" class="btn btn-danger" id="btnDelete" data-dismiss="modal" ng-click="deleteCompany(companyId)">Sim</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    @Scripts.Render("~/bundles/angular")
+
+    <script src="~/Scripts/AngularApp/Company/Module.js"></script>
+    <script src="~/Scripts/AngularApp/Company/Controller.js"></script>
+    <script src="~/Scripts/AngularApp/Company/Service.js"></script>
+
+</body>
+</html>

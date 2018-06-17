@@ -175,6 +175,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>CompanyDb.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Back-end\Employees\CompanyController.cs" />
     <Compile Include="Back-end\Service\ValidationFailures.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
@@ -254,11 +255,7 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Company\Index.cshtml" />
     <Content Include="Views\Home.cshtml" />
-    <Content Include="Views\Employee\Create.cshtml" />
-    <Content Include="Views\Employee\Delete.cshtml" />
-    <Content Include="Views\Employee\Details.cshtml" />
-    <Content Include="Views\Employee\Edit.cshtml" />
-    <Content Include="Views\Employee\Index.cshtml" />
+    <Content Include="Views\Employee\EmployeeForm.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
