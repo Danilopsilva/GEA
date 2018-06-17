@@ -58,7 +58,7 @@ companyApp.controller('CompanyController', function ($scope, companyService) {
                 $scope.clearFields();
             }
             else {
-                alert("Empresa não atualizada.");
+                alert(result.data.failures);
             }
         }, function () {
             alert("Ocorreu um erro ao tentar atualizar a emrpesa!");

@@ -20,12 +20,11 @@
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Empresas", "Index", "Company")</li>
-                    <li>@Html.ActionLink("Funcionários", "Save", "Company")</li>
+                    <li>@Html.ActionLink("EMPRESAS", "Index", "Company")</li>
+                    <li>@Html.ActionLink("FUNCIONÁRIOS", "Save", "Company")</li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-                    <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+                    <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> SAIR</a></li>
                 </ul>
             </div>
         </div>
@@ -33,7 +32,7 @@
     <div class="container body-content" ng-controller="CompanyController">
         @RenderBody()
         <hr />
-        <footer>
+        <footer align="center">
             <p>&copy; @DateTime.Now.Year - DaniloPereira Todos os Direitos Reservados</p>
         </footer>
     </div>
