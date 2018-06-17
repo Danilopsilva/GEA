@@ -16,12 +16,12 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                @Html.ActionLink("GEA", "Index", "Company", new { area = "" }, new { @class = "navbar-brand" })
+                @Html.ActionLink("GEA", "Home", "Views", new { area = "" }, new { @class = "navbar-brand" })
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Listar Empresas", "Index", "Company")</li>
-                    <li>@Html.ActionLink("Cadastrar Empresas", "Save", "Company")</li>
+                    <li>@Html.ActionLink("Empresas", "Index", "Company")</li>
+                    <li>@Html.ActionLink("Funcionários", "Save", "Company")</li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
                     <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>

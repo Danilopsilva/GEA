@@ -49,7 +49,7 @@ namespace GEA.Back_end.Companies
             }
             else
             {
-                company.CreateadWhen = DateTime.Now;
+                company.CreateadWhen = DateTime.Now.Date;
                 db.Company.Add(company);
                 db.SaveChanges();
                 result = Json(new { success = true });
@@ -62,16 +62,29 @@ namespace GEA.Back_end.Companies
         [HttpPost]
         public JsonResult UpdateCompany(COMPANIES company)
         {
-            var newCompany = db.Company.SingleOrDefault(b => b.Id == company.Id);
-            if (newCompany != null)
-            {
-                newCompany.Name = company.Name;
-                newCompany.Cnpj = company.Cnpj;
+            var result = new JsonResult();
+            var validationFailures = new List<ValidationFailures>();
 
-                db.SaveChanges();
-                return Json(new { success = true });
+            validationFailures = validateSave(company).ToList();
+            if (validationFailures.Any())
+            {
+                result = Json(new { failures = validationFailures[0].Message });
+                return result;
+
             }
             else
+            {
+                var newCompany = db.Company.SingleOrDefault(b => b.Id == company.Id);
+                if (newCompany != null)
+                {
+                    newCompany.Name = company.Name;
+                    newCompany.Cnpj = company.Cnpj;
+
+                    db.SaveChanges();
+                    return Json(new { success = true });
+                }
+
+            }
               return Json(new { Success = false });
         }
         #endregion

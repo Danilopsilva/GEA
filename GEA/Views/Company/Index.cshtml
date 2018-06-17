@@ -13,10 +13,9 @@
             <table class=" table table-striped ">
                 <thead>
                     <tr>
-                        <th>Código Empresa</th>
-                        <th>Nome</th>
-                        <th>Cnpj</th>
-                        <th>Data De Criação</th>
+                        <th>CÓDIGO EMPRESA</th>
+                        <th>NOME</th>
+                        <th>CNPJ</th>
                     </tr>
                 </thead>
 
@@ -25,7 +24,6 @@
                         <td>{{company.Id}}</td>
                         <td>{{company.Name}}</td>
                         <td>{{company.Cnpj}}</td>
-                        <td>{{company.CreateadWhen}}</td>
                         <td>
                             <button type="button" data-target="#updateCompany" data-toggle="modal" class="btn btn-info" ng-click="updateCompanyId(company)">Editar</button>
                             <a href="#" data-target="#deleteCompany" data-toggle="modal" ng-click="deleteCompanyId(company)" class="btn btn-danger">Remover</a>
@@ -80,7 +78,7 @@
                             </div>
 
                             <div class="form-group" align="center">
-                                <input type="number" class="form-control" name="Cnpj" ng-model="companyCnpj" placeholder="Cnpj" />
+                                <input type="text" class="form-control" name="Cnpj" ng-model="companyCnpj" placeholder="Cnpj" />
                             </div>
                         </form>
                     </div>

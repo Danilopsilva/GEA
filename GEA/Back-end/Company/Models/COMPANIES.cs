@@ -16,6 +16,6 @@ namespace GEA.Back_end.Company.Models
         public int Id { get; set; }
         public string Name { get; set; }
         public string Cnpj { get; set; }
-        public System.DateTime CreateadWhen { get; set; }
+        public DateTime CreateadWhen { get; set; }
     }
 }

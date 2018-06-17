@@ -175,18 +175,14 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>CompanyDb.edmx</DependentUpon>
     </Compile>
-    <Compile Include="Back-end\Employees\Database\EmployeesDb.cs" />
     <Compile Include="Back-end\Service\ValidationFailures.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Back-end\Employees\Models\Operator.cs" />
-    <Compile Include="Controllers\OperatorsController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Scripts\AngularApp\Company\CompanyController.js" />
     <Content Include="Scripts\AngularApp\Company\Controller.js" />
     <Content Include="Scripts\AngularApp\Company\Module.js" />
     <Content Include="Scripts\AngularApp\Company\Service.js" />
@@ -256,17 +252,13 @@
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="Views\Company\Save.cshtml" />
-    <Content Include="Views\Company\Delete.cshtml" />
-    <Content Include="Views\Company\Details.cshtml" />
-    <Content Include="Views\Company\Update.cshtml" />
     <Content Include="Views\Company\Index.cshtml" />
-    <Content Include="Views\Company\Home.cshtml" />
-    <Content Include="Views\Operators\Create.cshtml" />
-    <Content Include="Views\Operators\Delete.cshtml" />
-    <Content Include="Views\Operators\Details.cshtml" />
-    <Content Include="Views\Operators\Edit.cshtml" />
-    <Content Include="Views\Operators\Index.cshtml" />
+    <Content Include="Views\Home.cshtml" />
+    <Content Include="Views\Employee\Create.cshtml" />
+    <Content Include="Views\Employee\Delete.cshtml" />
+    <Content Include="Views\Employee\Details.cshtml" />
+    <Content Include="Views\Employee\Edit.cshtml" />
+    <Content Include="Views\Employee\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
@@ -284,7 +276,9 @@
     <Content Include="Scripts\jquery-3.3.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.3.1.min.map" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Back-end\Employees\Models\" />
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
