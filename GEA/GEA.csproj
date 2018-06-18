@@ -175,7 +175,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>CompanyDb.edmx</DependentUpon>
     </Compile>
-    <Compile Include="Back-end\Employees\CompanyController.cs" />
+    <Compile Include="Back-end\Employees\EmployeeController.cs" />
     <Compile Include="Back-end\Service\ValidationFailures.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
@@ -184,6 +184,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Scripts\AngularApp\Employee\Controller.js" />
+    <Content Include="Scripts\AngularApp\Employee\Module.js" />
+    <Content Include="Scripts\AngularApp\Employee\Service.js" />
     <Content Include="Scripts\AngularApp\Company\Controller.js" />
     <Content Include="Scripts\AngularApp\Company\Module.js" />
     <Content Include="Scripts\AngularApp\Company\Service.js" />
@@ -237,6 +240,8 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
     <Content Include="Views\Company\Dialog\SaveDialog.html" />
+    <Content Include="Views\Home\Image\fundo_home.jpg" />
+    <Content Include="Views\Home\Image\parking.png" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
