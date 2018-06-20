@@ -60,6 +60,16 @@
                                 <div class="form-group" align="center">
                                     <input type="text" class="form-control" name="Cpf" ng-model="cpf" placeholder="Cpf" />
                                 </div>
+
+                                <div class="form-group" align="center">
+                                    <input type="text" class="form-control" name="Telefone" ng-model="phone" placeholder="Telefone" />
+                                </div>
+
+                                <div class="form-group" align="center">
+                                    <select name="selected" id="selected" ng-model="company" ng-options="company.Name for company in Companies ">
+                                        <option value="">Selecione uma Empresa</option>
+                                    </select>
+                                </div>
                             </form>
                         </div>
                         <div class="modal-footer">
@@ -99,7 +109,7 @@
                 </div>
             </div>
 
-            <div class="modal" id="deleteCompany" role="dialog">
+            <div class="modal" id="deleteEmployee" role="dialog">
                 <div class="modal-dialog">
                     <div class="modal-content">
                         <div class="modal-header">
@@ -123,9 +133,9 @@
 
     @Scripts.Render("~/bundles/angular")
 
-    <script src="~/Scripts/AngularApp/Company/Module.js"></script>
-    <script src="~/Scripts/AngularApp/Company/Controller.js"></script>
-    <script src="~/Scripts/AngularApp/Company/Service.js"></script>
+    <script src="~/Scripts/AngularApp/Employee/Module.js"></script>
+    <script src="~/Scripts/AngularApp/Employee/Controller.js"></script>
+    <script src="~/Scripts/AngularApp/Employee/Service.js"></script>
 
 </body>
 </html>

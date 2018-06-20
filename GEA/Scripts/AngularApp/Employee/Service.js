@@ -9,6 +9,10 @@ employeeApp.service('employeeService', function ($http) {
         return $http.get('/Employee/GetEmployees');
     }
 
+    this.getCompanies = function () {
+        return $http.get('/Employee/GetCompanies')
+    }
+
     //Service responsavel por salvar novo funcionário
     this.saveEmployee = function(employee){
         var request = $http({

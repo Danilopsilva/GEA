@@ -6,6 +6,7 @@
 //     Manual changes to this file will be overwritten if the code is regenerated.
 // </auto-generated>
 //------------------------------------------------------------------------------
+using GEA.Back_end.Employees.Models;
 using System;
 using System.Data.Entity;
 using System.Data.Entity.Infrastructure;

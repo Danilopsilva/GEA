@@ -4,11 +4,12 @@ Cria controllador, onde vai estar todas as funções
  
  */
 
-//lista todas as empresas cadastradas
 employeeApp.controller('EmployeeController', function ($scope, employeeService) {
 
     getEmployees();
+    getCompanies();
 
+//lista todos os funcionarios cadastrados
     function getEmployees() {
         $scope.Employees = null;
         employeeService.getEmployees().then(result => {
@@ -18,12 +19,23 @@ employeeApp.controller('EmployeeController', function ($scope, employeeService) 
             })
     }
 
+    function getCompanies() {
+        $scope.Companies = null;
+        employeeService.getCompanies().then(result => {
+            $scope.Companies = result.data;
+        }, function () {
+            alert("Um erro ocorreu");
+        })
+    }
+
     // cria objeto funcionário para salvar.
     $scope.saveEmployee = function () {
         let saveEmployeeInput = {
             id: $scope.id,
             name: $scope.name,
-            cpf: $scope.cpf
+            cpf: $scope.cpf,
+            phone: $scope.phone,
+            companyId: $scope.company.Id,
         };
 
         let employee = employeeService.saveEmployee(saveEmployeeInput);
