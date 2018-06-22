@@ -36,17 +36,18 @@ employeeApp.controller('EmployeeController', function ($scope, employeeService) 
             cpf: $scope.cpf,
             phone: $scope.phone,
             companyId: $scope.company.CompanyId,
-            functionId: $scope.company.CompanyId, // modificar para receber o enum de funções
+            functionId: $scope.functionId, 
         };
 
         let employee = employeeService.saveEmployee(saveEmployeeInput);
 
             //valida se funcionario foi cadastrado e retorma mensagens ao usuário.
         employee.then(result => {
-                if (result.data.success === true) {
-                    getEmployees();
-                    $scope.clearFields();
-                } else if (result.data)
+            if (result.data.success === true) {
+                getEmployees();
+                $scope.clearFields();
+            } else if (result.data)
+                $scope.clearFields();
                     alert(result.data.failures);
             });
     }
@@ -55,13 +56,19 @@ employeeApp.controller('EmployeeController', function ($scope, employeeService) 
         $scope.employeeId = employee.Id;
         $scope.employeeName = employee.Name;
         $scope.employeeCpf = employee.Cpf;
+        $scope.employeePhone = employee.Phone;
+        $scope.employeeCompanyId = employee.CompanyId;
+        $scope.employeeFunctionId = employee.FunctionId;
     }
 
     $scope.updateEmployee = function() {
         let employeeInput = {
             Id: $scope.employeeId,
             Name: $scope.employeeName,
-            Cnpj: $scope.employeeCnpj,
+            Cpf: $scope.employeeCpf,
+            Phone: $scope.employeePhone,
+            CompanyId: $scope.employeeCompanyId,
+            FunctionId: $scope.employeeFunctionId
         };
 
         let employeeData = employeeService.updateEmployee(employeeInput);
@@ -104,4 +111,15 @@ employeeApp.controller('EmployeeController', function ($scope, employeeService) 
         $scope.cnpj = null;
         $scope.phone = null;
     }
+
+    // Enum de Funções do funcionário
+    $scope.functionIdSelected = {
+        model: null,
+        availableOptions: [
+            { id: '', name: 'Selecione uma Função' },
+            { id: '1', name: 'Operador' },
+            { id: '2', name: 'Segurança' },
+            { id: '3', name: 'Outros' }
+        ]
+    };
 });

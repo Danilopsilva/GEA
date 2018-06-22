@@ -176,24 +176,26 @@
       <DependentUpon>CompanyDb.edmx</DependentUpon>
     </Compile>
     <Compile Include="Back-end\Employees\EmployeeController.cs" />
+    <Compile Include="Back-end\Employees\Models\EmployeeDb.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EmployeeDb.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Back-end\Employees\Models\EmployeeDb.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EmployeeDb.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Back-end\Employees\Models\EmployeeDb.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EmployeeDb.edmx</DependentUpon>
+    </Compile>
     <Compile Include="Back-end\Employees\Models\EMPLOYEES.cs">
-      <DependentUpon>EmployyeDb.tt</DependentUpon>
+      <DependentUpon>EmployeeDb.tt</DependentUpon>
     </Compile>
-    <Compile Include="Back-end\Employees\Models\EmployyeDb.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>EmployyeDb.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Back-end\Employees\Models\EmployyeDb.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>EmployyeDb.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Back-end\Employees\Models\EmployyeDb.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>EmployyeDb.edmx</DependentUpon>
-    </Compile>
+    <Compile Include="Back-end\Employees\Models\Function.cs" />
+    <Compile Include="Back-end\ParkingManager\ParkingManagerController.cs" />
     <Compile Include="Back-end\Service\ValidationFailures.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
@@ -216,16 +218,19 @@
       <DependentUpon>CompanyDb.edmx</DependentUpon>
       <LastGenOutput>CompanyDb.cs</LastGenOutput>
     </Content>
-    <Content Include="Back-end\Employees\Models\EmployyeDb.Context.tt">
+    <Content Include="Back-end\Employees\Models\EmployeeDb.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>EmployyeDb.edmx</DependentUpon>
-      <LastGenOutput>EmployyeDb.Context.cs</LastGenOutput>
+      <DependentUpon>EmployeeDb.edmx</DependentUpon>
+      <LastGenOutput>EmployeeDb.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="Back-end\Employees\Models\EmployyeDb.tt">
+    <Content Include="Back-end\Employees\Models\EmployeeDb.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>EmployyeDb.edmx</DependentUpon>
-      <LastGenOutput>EmployyeDb.cs</LastGenOutput>
+      <DependentUpon>EmployeeDb.edmx</DependentUpon>
+      <LastGenOutput>EmployeeDb.cs</LastGenOutput>
     </Content>
+    <Content Include="Scripts\AngularApp\ParkingManager\Controller.js" />
+    <Content Include="Scripts\AngularApp\ParkingManager\Module.js" />
+    <Content Include="Scripts\AngularApp\ParkingManager\Service.js" />
     <Content Include="Scripts\AngularApp\Employee\Controller.js" />
     <Content Include="Scripts\AngularApp\Employee\Module.js" />
     <Content Include="Scripts\AngularApp\Employee\Service.js" />
@@ -249,19 +254,19 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Scripts\angular.min.js.map" />
-    <EntityDeploy Include="Back-end\Employees\Models\EmployyeDb.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>EmployyeDb.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <Content Include="Back-end\Employees\Models\EmployyeDb.edmx.diagram">
-      <DependentUpon>EmployyeDb.edmx</DependentUpon>
-    </Content>
     <EntityDeploy Include="Back-end\Company\Models\CompanyDb.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>CompanyDb.Designer.cs</LastGenOutput>
     </EntityDeploy>
     <Content Include="Back-end\Company\Models\CompanyDb.edmx.diagram">
       <DependentUpon>CompanyDb.edmx</DependentUpon>
+    </Content>
+    <EntityDeploy Include="Back-end\Employees\Models\EmployeeDb.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>EmployeeDb.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Back-end\Employees\Models\EmployeeDb.edmx.diagram">
+      <DependentUpon>EmployeeDb.edmx</DependentUpon>
     </Content>
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
@@ -296,6 +301,7 @@
     <Content Include="Views\Company\CompanyForm.cshtml" />
     <Content Include="Views\Home.cshtml" />
     <Content Include="Views\Employee\EmployeeForm.cshtml" />
+    <Content Include="Views\ParkingManager\ParkingManager.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />

@@ -1,0 +1,155 @@
+﻿<!DOCTYPE html>
+
+<html ng-app="ParkingApp">
+<body>
+
+ <div class="container" ng-controller="ParkingManagerController">
+        <br />
+        <div class="panel panel-info">
+            <div class="panel-heading">CONTROLE ESTACIONAMENTO</div>
+            <br />
+            <button type="button" class="btn btn-info" data-target="#saveParking" data-toggle="modal">Nova Entradas</button>
+            <br />
+            <div ng-if="Parking.length == 0 ">
+                <h3 align="center">Não Existem Entradas</h3>
+            </div>
+
+            <div ng-if="Parking.length > 0">
+                <table class=" table table-striped ">
+                    <thead>
+                        <tr>
+                            <th>PLACA</th>
+                            <th>MODELO</th>
+                            <th>COR</th>
+                            <th>NO ESTACIONAMENTO</th>
+                            <th>DATA ENTRADA</th>
+                            <th>DATA SAÍDA</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="parking in Parked">
+                            <td>{{parking.ParkingId}}</td>
+                            <td>{{parking.Bord}}</td>
+                            <td>{{parking.Model}}</td>
+                            <td>{{parking.Color}}</td>
+                            <td>{{parking.IsStoped}}</td>
+                            <td>{{parking.DateEntry}}</td>
+                            <td>{{parking.DateOut}}</td>
+                            <td>
+                                <button type="button" data-target="#updateParking" data-toggle="modal" class="btn btn-info" ng-click="updateParkingId(parking)">Editar</button>
+                                <a href="#" data-target="#deleteParking" data-toggle="modal" ng-click="deleteParkingId(parking)" class="btn btn-danger">Remover</a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            
+
+            <!--Cria diálogo para salvar na entrada-->
+            <div class="modal" id="saveParking" role="dialog">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h3 class="text-info">Adicione Nova Entrada</h3>
+                        </div>
+                        <div class="modal-body">
+                            <form class="form-horizontal" name="adicionarCarro">
+                                <div class="form-group">
+                                    <input class="form-control" readonly="readonly" name="parkingId" type="hidden" placeholder="Id Estacionamento" />
+                                </div>
+
+                                <div class="form-group" align="center">
+                                    <input type="text" class="form-control" name="Placa do Carro" ng-model="bord" placeholder="Placa" />
+                                </div>
+
+                                <div class="form-group" align="center">
+                                    <input type="text" class="form-control" name="Modelo" ng-model="model" placeholder="Modelo" />
+                                </div>
+
+                                <div class="form-group" align="center">
+                                    <input type="text" class="form-control" name="Color" ng-model="color" placeholder="Cor" />
+                                </div>
+
+                                <div class="form-group" align="center">
+                                    <input type="text" class="form-control" name="isStoped" ng-model="isStoped" placeholder="Estacionado" />
+                                </div>
+                            </form>
+                        </div>
+                        <div class="modal-footer">
+                            <button class="btn btn-default" data-dismiss="modal" ng-click="clearFields()">Cancelar</button>
+                            <button type="button" class="btn btn-success" id="btnSave" data-dismiss="modal" ng-click="saveParking()">Salvar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div>
+
+            </div>
+
+            <div class="modal" id="updateParking" role="dialog">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h3 class="text-info">Edite uma Entrada</h3>
+                        </div>
+                        <div class="modal-body">
+                            <form class="form-horizontal" name="editarEntrada">
+                                <div class="form-group">
+                                    <input class="form-control" readonly="readonly" name="parkingId" type="hidden" placeholder="Id Empresa" ng-model="parkingId" />
+                                </div>
+
+                                <div class="form-group" align="center">
+                                    <input type="text" class="form-control" name="Placa do Carro" ng-model="bord" placeholder="Placa" />
+                                </div>
+
+                                <div class="form-group" align="center">
+                                    <input type="text" class="form-control" name="Modelo" ng-model="model" placeholder="Modelo" />
+                                </div>
+
+                                <div class="form-group" align="center">
+                                    <input type="text" class="form-control" name="Color" ng-model="color" placeholder="Cor" />
+                                </div>
+
+                                <div class="form-group" align="center">
+                                    <input type="text" class="form-control" name="isStoped" ng-model="isStoped" placeholder="Estacionado" />
+                                </div>
+                            </form>
+                        </div>
+                        <div class="modal-footer">
+                            <button class="btn btn-default" data-dismiss="modal" ng-click="clearFields()">Cancelar</button>
+                            <button type="button" class="btn btn-success" id="btnUpdate" data-dismiss="modal" ng-click="updateParking()">Salvar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="modal" id="deleteParkingId" role="dialog">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h3 class="text-info">Você tem Certeza que Deseja Remover?</h3>
+                        </div>
+                        <div class="modal-body">
+                            <div>
+                                <p>Código da Estacionamento: {{parkingId}}</p>
+                                <p>Nome: {{parkingName}}</p>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button class="btn btn-default" data-dismiss="modal" ng-click="clearFields()">Não</button>
+                            <button type="button" class="btn btn-danger" id="btnDelete" data-dismiss="modal" ng-click="deleteParking(parkingId)">Sim</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+ </div>
+
+    @Scripts.Render("~/bundles/angular")
+
+    <script src="~/Scripts/AngularApp/ParkingManager/Module.js"></script>
+    <script src="~/Scripts/AngularApp/ParkingManager/Controller.js"></script>
+    <script src="~/Scripts/AngularApp/ParkingManager/Service.js"></script>
+
+</body>
+</html>

@@ -11,7 +11,7 @@ namespace GEA.Back_end.Employees
 
     public class EmployeeController : Controller
     {
-        GeaEntities2 db = new GeaEntities2();
+        GeaEntities1 db = new GeaEntities1();
 
         #region Método listar Funcionarios
         //GET: DB
@@ -25,9 +25,9 @@ namespace GEA.Back_end.Employees
             var result = new JsonResult();
             var listEmployees = new List<EMPLOYEES>();
             listEmployees = db.EMPLOYEES.ToList();
-
-            result = Json(listEmployees, JsonRequestBehavior.AllowGet);
+                result = Json(listEmployees, JsonRequestBehavior.AllowGet);
             return result;
+
         }
         #endregion
 
@@ -63,7 +63,7 @@ namespace GEA.Back_end.Employees
             }
             else
             {
-                employee.CreatedWehn = DateTime.Now.Date;
+                employee.CreatedWhen = DateTime.Now.Date;
                 db.EMPLOYEES.Add(employee);
                 db.SaveChanges();
                 result = Json(new { success = true });
@@ -165,6 +165,23 @@ namespace GEA.Back_end.Employees
                     failures.Add(new ValidationFailures
                     {
                         Message = "Por favor Selecione uma Empresa."
+                    });
+                }
+
+                if(employee.FunctionId <=0)
+                {
+                    failures.Add(new ValidationFailures
+                    {
+                        Message = "Por Favor Selecione uma Função para o funcionário."
+                    });
+                }
+
+                if(employee.Phone <=0)
+                {
+
+                    failures.Add(new ValidationFailures
+                    {
+                        Message = "Por favor informe um número de telefone para contato."
                     });
                 }
             }

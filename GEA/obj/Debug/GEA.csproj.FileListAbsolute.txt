@@ -94,3 +94,4 @@ C:\Users\DaniloP\Documents\repositorios\GEA\GEA\obj\Debug\GEA.csproj.CoreCompile
 C:\Users\DaniloP\Documents\repositorios\GEA\GEA\obj\Debug\GEA.csproj.CopyComplete
 C:\Users\DaniloP\Documents\repositorios\GEA\GEA\obj\Debug\GEA.dll
 C:\Users\DaniloP\Documents\repositorios\GEA\GEA\obj\Debug\GEA.pdb
+C:\Users\DaniloP\Documents\repositorios\GEA\GEA\obj\Debug\GEA.csprojAssemblyReference.cache

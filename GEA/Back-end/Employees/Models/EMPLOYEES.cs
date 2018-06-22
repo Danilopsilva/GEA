@@ -7,19 +7,23 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 using System;
+using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
+using System.Linq.Expressions;
 
 namespace GEA.Back_end.Employees.Models
 {
 
-    public partial class EMPLOYEES
+    
+    public partial class EMPLOYEES 
     {
         public int Id { get; set; }
         public string Name { get; set; }
         public string Cpf { get; set; }
         public int FunctionId { get; set; }
         public int CompanyId { get; set; }
-        public string Phone { get; set; }
-        public DateTime CreatedWehn { get; set; }
+        public int Phone { get; set; }
+        public DateTime CreatedWhen { get; set; }
     }
 }
