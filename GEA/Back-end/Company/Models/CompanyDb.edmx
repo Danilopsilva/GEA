@@ -7,22 +7,17 @@
       <Schema Namespace="GeaModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="COMPANIES">
           <Key>
-            <PropertyRef Name="Id" />
+            <PropertyRef Name="CompanyId" />
           </Key>
-          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CompanyId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Name" Type="nvarchar" MaxLength="30" Nullable="false" />
           <Property Name="Cnpj" Type="nvarchar" MaxLength="14" Nullable="false" />
-          <Property Name="CreateadWhen" Type="date" Nullable="false" />
-        </EntityType>
-        <EntityType Name="Table">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Email" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="Phone" Type="nvarchar" MaxLength="11" />
+          <Property Name="CreatedWhen" Type="date" Nullable="false" />
         </EntityType>
         <EntityContainer Name="GeaModelStoreContainer">
           <EntitySet Name="COMPANIES" EntityType="Self.COMPANIES" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Table" EntityType="Self.Table" Schema="dbo" store:Type="Tables" />
         </EntityContainer>
       </Schema>
     </edmx:StorageModels>
@@ -31,22 +26,17 @@
       <Schema Namespace="GeaModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityType Name="COMPANIES">
           <Key>
-            <PropertyRef Name="Id" />
+            <PropertyRef Name="CompanyId" />
           </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CompanyId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Name" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Cnpj" Type="String" MaxLength="14" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="CreateadWhen" Type="DateTime" Nullable="false" Precision="0" />
-        </EntityType>
-        <EntityType Name="Table">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Email" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Phone" Type="String" MaxLength="11" FixedLength="false" Unicode="true" />
+          <Property Name="CreatedWhen" Type="DateTime" Nullable="false" Precision="0" />
         </EntityType>
         <EntityContainer Name="GeaEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="COMPANIES" EntityType="Self.COMPANIES" />
-          <EntitySet Name="Table" EntityType="Self.Table" />
         </EntityContainer>
       </Schema>
     </edmx:ConceptualModels>
@@ -57,17 +47,12 @@
           <EntitySetMapping Name="COMPANIES">
             <EntityTypeMapping TypeName="GeaModel.COMPANIES">
               <MappingFragment StoreEntitySet="COMPANIES">
-                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="CompanyId" ColumnName="CompanyId" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="Cnpj" ColumnName="Cnpj" />
-                <ScalarProperty Name="CreateadWhen" ColumnName="CreateadWhen" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Table">
-            <EntityTypeMapping TypeName="GeaModel.Table">
-              <MappingFragment StoreEntitySet="Table">
-                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="CreatedWhen" ColumnName="CreatedWhen" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

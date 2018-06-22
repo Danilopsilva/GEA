@@ -6,14 +6,12 @@
 //     Manual changes to this file will be overwritten if the code is regenerated.
 // </auto-generated>
 //------------------------------------------------------------------------------
-using GEA.Back_end.Employees.Models;
-using System;
-using System.Data.Entity;
-using System.Data.Entity.Infrastructure;
 
 namespace GEA.Back_end.Company.Models
 {
-
+    using System;
+    using System.Data.Entity;
+    using System.Data.Entity.Infrastructure;
     
     public partial class GeaEntities : DbContext
     {
@@ -27,6 +25,6 @@ namespace GEA.Back_end.Company.Models
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<COMPANIES> Company { get; set; }
+        public virtual DbSet<COMPANIES> COMPANIES { get; set; }
     }
 }

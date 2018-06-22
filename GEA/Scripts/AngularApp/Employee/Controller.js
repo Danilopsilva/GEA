@@ -35,7 +35,8 @@ employeeApp.controller('EmployeeController', function ($scope, employeeService) 
             name: $scope.name,
             cpf: $scope.cpf,
             phone: $scope.phone,
-            companyId: $scope.company.Id,
+            companyId: $scope.company.CompanyId,
+            functionId: $scope.company.CompanyId, // modificar para receber o enum de funções
         };
 
         let employee = employeeService.saveEmployee(saveEmployeeInput);
@@ -101,5 +102,6 @@ employeeApp.controller('EmployeeController', function ($scope, employeeService) 
         $scope.id = null;
         $scope.name = null;
         $scope.cnpj = null;
+        $scope.phone = null;
     }
 });

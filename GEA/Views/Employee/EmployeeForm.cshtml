@@ -22,6 +22,8 @@
                             <th>NOME</th>
                             <th>CPF</th>
                             <th>EMPRESA</th>
+                            <th>FUNÇÃO</th>
+                            <th>TELEFONE</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -30,6 +32,8 @@
                             <td>{{employee.Name}}</td>
                             <td>{{employee.Cpf}}</td>
                             <td>{{employee.CompanyId}}</td>
+                            <td>{{employee.FunctionId}}</td>
+                            <td>{{employee.Phone}}</td>
                             <td>
                                 <button type="button" data-target="#updateEmployee" data-toggle="modal" class="btn btn-info" ng-click="updateEmployeeId(employee)">Editar</button>
                                 <a href="#" data-target="#deleteEmployee" data-toggle="modal" ng-click="deleteEmployeeId(employee)" class="btn btn-danger">Remover</a>
@@ -70,6 +74,13 @@
                                         <option value="">Selecione uma Empresa</option>
                                     </select>
                                 </div>
+
+                                <div class="form-group" align="center">
+                                    <select name="selected" id="selected" ng-model="functionId" ng-options="company.Name for company in Companies ">
+                                        <option value="">Selecione uma Função</option>
+                                    </select>
+                                </div>
+
                             </form>
                         </div>
                         <div class="modal-footer">
@@ -99,6 +110,24 @@
                                 <div class="form-group" align="center">
                                     <input type="text" class="form-control" name="Cpf" ng-model="employeeCpf" placeholder="Cpf" />
                                 </div>
+
+                                <div class="form-group" align="center">
+                                    <input type="text" class="form-control" name="Phone" ng-model="employeePhone" placeholder="Telefone" />
+                                </div>
+
+
+                                <div class="form-group" align="center">
+                                    <select name="selected" id="selected" ng-model="company" ng-options="company.Name for company in Companies ">
+                                        <option value="">Selecione uma Empresa</option>
+                                    </select>
+                                </div>
+
+                                <div class="form-group" align="center">
+                                    <select name="selected" id="selected" ng-model="functionId" ng-options="company.Name for company in Companies ">
+                                        <option value="">Selecione uma Função</option>
+                                    </select>
+                                </div>
+
                             </form>
                         </div>
                         <div class="modal-footer">

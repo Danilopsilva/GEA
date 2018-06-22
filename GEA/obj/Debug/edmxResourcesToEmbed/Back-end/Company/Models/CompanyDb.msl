@@ -4,17 +4,12 @@
     <EntitySetMapping Name="COMPANIES">
       <EntityTypeMapping TypeName="GeaModel.COMPANIES">
         <MappingFragment StoreEntitySet="COMPANIES">
-          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="CompanyId" ColumnName="CompanyId" />
           <ScalarProperty Name="Name" ColumnName="Name" />
           <ScalarProperty Name="Cnpj" ColumnName="Cnpj" />
-          <ScalarProperty Name="CreateadWhen" ColumnName="CreateadWhen" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="Table">
-      <EntityTypeMapping TypeName="GeaModel.Table">
-        <MappingFragment StoreEntitySet="Table">
-          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+          <ScalarProperty Name="CreatedWhen" ColumnName="CreatedWhen" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

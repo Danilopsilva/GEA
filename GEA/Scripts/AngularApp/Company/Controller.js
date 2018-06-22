@@ -23,7 +23,9 @@ companyApp.controller('CompanyController', function ($scope, companyService) {
         let saveCompanyInput = {
             id: $scope.id,
             name: $scope.name,
-            cnpj: $scope.cnpj
+            cnpj: $scope.cnpj,
+            phone: $scope.phone,
+            email: $scope.email
         };
 
          let comány = companyService.saveCompany(saveCompanyInput);
@@ -39,16 +41,20 @@ companyApp.controller('CompanyController', function ($scope, companyService) {
     }
 
     $scope.updateCompanyId = function(company) {
-        $scope.companyId = company.Id;
+        $scope.companyId = company.CompanyId;
         $scope.companyName = company.Name;
         $scope.companyCnpj = company.Cnpj;
+        $scope.companyPhone = company.Phone;
+        $scope.companyEmail = company.Email;
     }
 
     $scope.updateCompany = function() {
         let companyInput = {
-            Id: $scope.companyId,
+            CompanyId: $scope.companyId,
             Name: $scope.companyName,
             Cnpj: $scope.companyCnpj,
+            Phone: $scope.companyPhone,
+            Email: $scope.companyEmail,
         };
 
         let comanyData = companyService.updateCompany(companyInput);
@@ -65,8 +71,8 @@ companyApp.controller('CompanyController', function ($scope, companyService) {
         });
     }
 
-    $scope.deleteCompany = function(id){
-        var deleteData= companyService.deleteCompany(id);
+    $scope.deleteCompany = function(companyId){
+        var deleteData = companyService.deleteCompany(companyId);
             deleteData.then(result => {
                 if(result.data.success ===true)
                     getCompanies();
@@ -78,8 +84,8 @@ companyApp.controller('CompanyController', function ($scope, companyService) {
             });
     }
 
-    $scope.deleteCompanyId = function(company) {
-        $scope.companyId = company.Id;
+    $scope.deleteCompanyId = function (company) {
+        $scope.companyId = company.CompanyId;
         $scope.companyName = company.Name;
     }
 
@@ -89,5 +95,7 @@ companyApp.controller('CompanyController', function ($scope, companyService) {
         $scope.id = null;
         $scope.name = null;
         $scope.cnpj = null;
+        $scope.phone = null;
+        $scope.email = null;
     }
 });

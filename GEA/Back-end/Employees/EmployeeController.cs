@@ -11,7 +11,7 @@ namespace GEA.Back_end.Employees
 
     public class EmployeeController : Controller
     {
-        GeaEntities1 db = new GeaEntities1();
+        GeaEntities2 db = new GeaEntities2();
 
         #region Método listar Funcionarios
         //GET: DB
@@ -39,7 +39,7 @@ namespace GEA.Back_end.Employees
             using (var dbCompany = new GeaEntities())
             {
                 var listCompanies = new List<COMPANIES>();
-                listCompanies = dbCompany.Company.ToList();
+                listCompanies = dbCompany.COMPANIES.ToList();
 
                 result = Json(listCompanies, JsonRequestBehavior.AllowGet);
             }
@@ -63,7 +63,7 @@ namespace GEA.Back_end.Employees
             }
             else
             {
-                employee.CreatedWhen = DateTime.Now.Date;
+                employee.CreatedWehn = DateTime.Now.Date;
                 db.EMPLOYEES.Add(employee);
                 db.SaveChanges();
                 result = Json(new { success = true });
@@ -88,11 +88,13 @@ namespace GEA.Back_end.Employees
             }
             else
             {
-                var newCompany = db.EMPLOYEES.SingleOrDefault(b => b.Id == employee.Id);
-                if (newCompany != null)
+                var newEmployee = db.EMPLOYEES.SingleOrDefault(b => b.Id == employee.Id);
+                if (newEmployee != null)
                 {
-                    newCompany.Name = employee.Name;
-                    newCompany.Cpf = employee.Cpf;
+                    newEmployee.Name = employee.Name;
+                    newEmployee.Cpf = employee.Cpf;
+                    newEmployee.Phone = employee.Phone;
+                    newEmployee.FunctionId = employee.FunctionId;
 
                     db.SaveChanges();
                     return Json(new { success = true });

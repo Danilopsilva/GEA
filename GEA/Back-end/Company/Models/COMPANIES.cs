@@ -7,15 +7,17 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 using System;
-using System.Collections.Generic;
 namespace GEA.Back_end.Company.Models
 {
+
     
     public partial class COMPANIES
     {
-        public int Id { get; set; }
+        public int CompanyId { get; set; }
         public string Name { get; set; }
         public string Cnpj { get; set; }
-        public DateTime CreateadWhen { get; set; }
+        public string Email { get; set; }
+        public string Phone { get; set; }
+        public DateTime CreatedWhen { get; set; }
     }
 }

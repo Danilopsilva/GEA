@@ -176,23 +176,23 @@
       <DependentUpon>CompanyDb.edmx</DependentUpon>
     </Compile>
     <Compile Include="Back-end\Employees\EmployeeController.cs" />
-    <Compile Include="Back-end\Employees\Models\Employee.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Employee.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Back-end\Employees\Models\Employee.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Employee.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Back-end\Employees\Models\Employee.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Employee.edmx</DependentUpon>
-    </Compile>
     <Compile Include="Back-end\Employees\Models\EMPLOYEES.cs">
-      <DependentUpon>Employee.tt</DependentUpon>
+      <DependentUpon>EmployyeDb.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Back-end\Employees\Models\EmployyeDb.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EmployyeDb.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Back-end\Employees\Models\EmployyeDb.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EmployyeDb.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Back-end\Employees\Models\EmployyeDb.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EmployyeDb.edmx</DependentUpon>
     </Compile>
     <Compile Include="Back-end\Service\ValidationFailures.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -202,22 +202,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Back-end\Employees\Models\Employee.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>Employee.edmx</DependentUpon>
-      <LastGenOutput>Employee.Context.cs</LastGenOutput>
-    </Content>
-    <Content Include="Back-end\Employees\Models\Employee.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>Employee.edmx</DependentUpon>
-      <LastGenOutput>Employee.cs</LastGenOutput>
-    </Content>
-    <Content Include="Scripts\AngularApp\Employee\Controller.js" />
-    <Content Include="Scripts\AngularApp\Employee\Module.js" />
-    <Content Include="Scripts\AngularApp\Employee\Service.js" />
-    <Content Include="Scripts\AngularApp\Company\Controller.js" />
-    <Content Include="Scripts\AngularApp\Company\Module.js" />
-    <Content Include="Scripts\AngularApp\Company\Service.js" />
     <Content Include="App_Data\GEA.mdf" />
     <Content Include="App_Data\GEA_log.ldf">
       <DependentUpon>GEA.mdf</DependentUpon>
@@ -232,6 +216,22 @@
       <DependentUpon>CompanyDb.edmx</DependentUpon>
       <LastGenOutput>CompanyDb.cs</LastGenOutput>
     </Content>
+    <Content Include="Back-end\Employees\Models\EmployyeDb.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>EmployyeDb.edmx</DependentUpon>
+      <LastGenOutput>EmployyeDb.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Back-end\Employees\Models\EmployyeDb.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>EmployyeDb.edmx</DependentUpon>
+      <LastGenOutput>EmployyeDb.cs</LastGenOutput>
+    </Content>
+    <Content Include="Scripts\AngularApp\Employee\Controller.js" />
+    <Content Include="Scripts\AngularApp\Employee\Module.js" />
+    <Content Include="Scripts\AngularApp\Employee\Service.js" />
+    <Content Include="Scripts\AngularApp\Company\Controller.js" />
+    <Content Include="Scripts\AngularApp\Company\Module.js" />
+    <Content Include="Scripts\AngularApp\Company\Service.js" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
@@ -249,19 +249,19 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Scripts\angular.min.js.map" />
+    <EntityDeploy Include="Back-end\Employees\Models\EmployyeDb.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>EmployyeDb.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Back-end\Employees\Models\EmployyeDb.edmx.diagram">
+      <DependentUpon>EmployyeDb.edmx</DependentUpon>
+    </Content>
     <EntityDeploy Include="Back-end\Company\Models\CompanyDb.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>CompanyDb.Designer.cs</LastGenOutput>
     </EntityDeploy>
     <Content Include="Back-end\Company\Models\CompanyDb.edmx.diagram">
       <DependentUpon>CompanyDb.edmx</DependentUpon>
-    </Content>
-    <EntityDeploy Include="Back-end\Employees\Models\Employee.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>Employee.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <Content Include="Back-end\Employees\Models\Employee.edmx.diagram">
-      <DependentUpon>Employee.edmx</DependentUpon>
     </Content>
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
@@ -293,7 +293,7 @@
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="Views\Company\Index.cshtml" />
+    <Content Include="Views\Company\CompanyForm.cshtml" />
     <Content Include="Views\Home.cshtml" />
     <Content Include="Views\Employee\EmployeeForm.cshtml" />
   </ItemGroup>

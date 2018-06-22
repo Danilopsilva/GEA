@@ -17,7 +17,7 @@ namespace GEA.Back_end.Companies
 
         #region Método listar Empresas
         //GET: DB
-        public ActionResult Index()
+        public ActionResult CompanyForm()
         {
             return View();
         }
@@ -26,7 +26,7 @@ namespace GEA.Back_end.Companies
         {
             var result = new JsonResult();
                 var listCompanies = new List<COMPANIES>();
-                listCompanies = db.Company.ToList();
+                listCompanies = db.COMPANIES.ToList();
 
                 result = Json(listCompanies, JsonRequestBehavior.AllowGet);
                 return result;
@@ -49,8 +49,8 @@ namespace GEA.Back_end.Companies
             }
             else
             {
-                company.CreateadWhen = DateTime.Now.Date;
-                db.Company.Add(company);
+                company.CreatedWhen = DateTime.Now.Date;
+                db.COMPANIES.Add(company);
                 db.SaveChanges();
                 result = Json(new { success = true });
             }
@@ -74,11 +74,14 @@ namespace GEA.Back_end.Companies
             }
             else
             {
-                var newCompany = db.Company.SingleOrDefault(b => b.Id == company.Id);
+                var newCompany = db.COMPANIES.SingleOrDefault(b => b.CompanyId == company.CompanyId);
                 if (newCompany != null)
                 {
                     newCompany.Name = company.Name;
                     newCompany.Cnpj = company.Cnpj;
+                    newCompany.CompanyId = company.CompanyId;
+                    newCompany.Email = company.Email;
+                    newCompany.Phone = company.Phone;
 
                     db.SaveChanges();
                     return Json(new { success = true });
@@ -93,10 +96,10 @@ namespace GEA.Back_end.Companies
         [HttpPost]
         public JsonResult DeleteCompany(int id)
         {
-            var company = db.Company.Find(id);
+            var company = db.COMPANIES.Find(id);
             if (company != null)
             {
-                db.Company.Remove(company);
+                db.COMPANIES.Remove(company);
                 db.SaveChanges();
                 return Json(new { success = true });
             }

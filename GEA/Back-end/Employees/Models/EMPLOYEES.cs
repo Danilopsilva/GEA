@@ -8,17 +8,18 @@
 //------------------------------------------------------------------------------
 using System;
 using System.Collections.Generic;
+
 namespace GEA.Back_end.Employees.Models
 {
 
-    
     public partial class EMPLOYEES
     {
         public int Id { get; set; }
         public string Name { get; set; }
         public string Cpf { get; set; }
-        public string Phone { get; set; }
+        public int FunctionId { get; set; }
         public int CompanyId { get; set; }
-        public DateTime CreatedWhen { get; set; }
+        public string Phone { get; set; }
+        public DateTime CreatedWehn { get; set; }
     }
 }
